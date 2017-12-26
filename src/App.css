@@ -26,3 +26,22 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.btn-tog{
+  padding:10px 30px;
+  background-color: lightgray;
+}
+.text-tog{
+border:2px solid blue;
+}
+
+.box {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  float: left;
+  margin: 100px 90px 0;
+}
+
+.row2, .row3 {
+	clear: both;
+}

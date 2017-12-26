@@ -1,49 +1,43 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Sampletwo from './sampletwo.js';
-import SampleThree from './Samplethree.js';
+import Child1 from './Child1.js';
+import Child2 from './Child2.js';
+import Child3 from './Child3.js';
+import Task from './task1.js';
 
-
-class App extends Component {
-  constructor(props){
-      super(props);
-      this.state = {
-        name : "prathiksha",
-        age : 25
-      };
-      this.update = this.update.bind(this); // binding the scope
-  }
-  shouldComponentUpdate(nextProps, nextState){
-    if(nextState.name == "madhuri"){
-      return false;
-    }else{
-      return true;
+  class App extends Component {
+    constructor(props){
+        super(props);
+       this.getColor=this.getColor.bind(this);
+       this.state={
+         color:'#fff'
+       }
     }
-  }
-  update(){
-    this.setState({name:"kishore"});
-  }
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React{this.state.name}</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button onClick={()=>{this.update()}} >Click</button>
-        <button onClick={()=>{this.setState({name:"kishore"})}} >Change the value </button>
-        <Sampletwo class={this.state.name}/>
-        <SampleThree />
-        
-      </div>
-    );
-  }
+   getColor(e)
+   {
+     this.setState({
+         color:e.target.value   
+     });
+   }
+ render() {
+         return (<div className="App">
+                   <div className="App-intro">
+                       <select onChange={(e)=>this.getColor(e)}>   
+                           <option value="">Select color</option>
+                            <option value="red">Red</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                           <Child1 data={this.state.color}/>      
+                            <Child2 data={this.state.color}/>
+                            <Child3 data={this.state.color}/>
+                            
+                            <Task/>
+                   </div>
+           </div>
+         );
+     }
 }
-
-
-
-export default App;
+ export default App;
